@@ -69,12 +69,13 @@ class MysteryMatch extends React.Component {
   }
 
   render() {
-    let tiles = [];
-    for (var i = 0; i < 4; i++) {
+    //let tiles = [];
+/*    for (var i = 0; i < 4; i++) {
       tiles[i] = [0, 0, 0, 0];
     }
 
-    console.log("tiles:", this.state.tiles)
+    console.log("tiles:", this.state.tiles);
+    console.log("TILETEST", this.state.tiles[0]);
     for (var t in this.state.tiles) {
 
       if(!this.state.tiles.hasOwnProperty(t)) {
@@ -83,7 +84,9 @@ class MysteryMatch extends React.Component {
       console.log(t);
       tiles[t.i][t.j] = t;
       }
-
+*/
+let tiles = Object.values(this.state.tiles);
+console.log("array of tiles:", tiles);
 	let restartbutton = <button className="restart" onClick={this.restartGame.bind(this)}> Restart Game </button>;
 
 	return (
@@ -94,9 +97,9 @@ class MysteryMatch extends React.Component {
 	    	  <div className="column">{restartbutton}</div>
 	  	</div>
 	 	  <div className="row">
-	    	  <div className="column"> {<Tile hidden={tiles[0][0].hidden}
-                                          letter={tiles[0][0].letter}
-           onClick={this.tileClick.bind(this, tiles[0][0].index)} />} </div>
+	    	  <div className="column"> {<Tile hidden={tiles[0].hidden}
+                                          letter={tiles[0].letter}
+           onClick={this.tileClick.bind(this, tiles[0].index)} />} </div>
 	    	  <div className="column"> {<Tile hidden={tiles[0][1].hidden}
                                           letter={tiles[0][1].letter}
            onClick={this.tileClick.bind(this, tiles[0][1].index)} />} </div>

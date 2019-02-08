@@ -25,14 +25,88 @@ def init_tiles() do
   # letter is the first random letter from pool, i and j are palcement in the
   # grid based on the modular division
   # hidden is to determine whether or not the letter for this tile is revealed
-  Enum.each(0..15, fn(x) ->
-    Map.put(tile_list, x, %{letter: List.pop_at(pool, 0),
-    i: rem(x, 4), # remainder should give the correct column
-    j: div(x, 4), # integer division should give the correct row
+
+    tile_list
+    |> Map.put(0, %{letter: Enum.at(pool, 0),
+    i: 0, # remainder should give the correct column
+    j: 0, # integer division should give the correct row
     hidden: true, # all tiles start hidden until clicked
-    index: x}) # index so the state can be updated more easily
-  end
-  )
+    index: 0})
+    |> Map.put(1, %{letter: Enum.at(pool, 1),
+    i: 1,
+    j: 0,
+    hidden: true,
+    index: 1})
+    |> Map.put(2, %{letter: Enum.at(pool, 2),
+    i: 2,
+    j: 0,
+    hidden: true,
+    index: 2})
+    |> Map.put(3, %{letter: Enum.at(pool, 3),
+    i: 3,
+    j: 0,
+    hidden: true,
+    index: 3})
+    |> Map.put(4, %{letter: Enum.at(pool, 4),
+    i: 0,
+    j: 1,
+    hidden: true,
+    index: 4})
+    |> Map.put(5, %{letter: Enum.at(pool, 5),
+    i: 1,
+    j: 1,
+    hidden: true,
+    index: 5})
+    |> Map.put(6, %{letter: Enum.at(pool, 6),
+    i: 2,
+    j: 1,
+    hidden: true,
+    index: 6})
+    |> Map.put(7, %{letter: Enum.at(pool, 7),
+    i: 3,
+    j: 1,
+    hidden: true,
+    index: 7})
+    |> Map.put(8, %{letter: Enum.at(pool, 8),
+    i: 0,
+    j: 2,
+    hidden: true,
+    index: 8})
+    |> Map.put(9, %{letter: Enum.at(pool, 9),
+    i: 1,
+    j: 2,
+    hidden: true,
+    index: 9})
+    |> Map.put(10, %{letter: Enum.at(pool, 10),
+    i: 2,
+    j: 2,
+    hidden: true,
+    index: 10})
+    |> Map.put(11, %{letter: Enum.at(pool, 11),
+    i: 3,
+    j: 2,
+    hidden: true,
+    index: 11})
+    |> Map.put(12, %{letter: Enum.at(pool, 12),
+    i: 0,
+    j: 3,
+    hidden: true,
+    index: 12})
+    |> Map.put(13, %{letter: Enum.at(pool, 13),
+    i: 1,
+    j: 3,
+    hidden: true,
+    index: 13})
+    |> Map.put(14, %{letter: Enum.at(pool, 14),
+    i: 2,
+    j: 3,
+    hidden: true,
+    index: 14})
+    |> Map.put(15, %{letter: Enum.at(pool, 15),
+    i: 3,
+    j: 3,
+    hidden: true,
+    index: 15})
 end
 
 # function to handle a letter being clicked

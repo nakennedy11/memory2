@@ -9,7 +9,7 @@ defmodule Memory2Web.PageController do
     render conn, "game.html", name: name
   end
 
-  def game_entry(conn, %{"name" => name}) do
+  def game_form(conn, %{"name" => name}) do
     redirect(conn, to: "/game/" <> name)
   end
 end

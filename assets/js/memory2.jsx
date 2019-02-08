@@ -2,13 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import _ from 'lodash';
 
-export default function game_init(root) {
-  ReactDOM.render(<MysteryMatch channel = {channel}/>, root);
+export default function game_init(root, channel) {
+  ReactDOM.render(<MysteryMatch channel={channel}/>, root);
 }
 
 class MysteryMatch extends React.Component {
   constructor(props) {
     super(props);
+
+    this.channel = props.channel;
 
     this.state = {
       tiles: {},
@@ -27,7 +29,7 @@ class MysteryMatch extends React.Component {
 
   tileClick(index) {
     for (var t in this.state.tiles) {
-      if(!p.hasOwnProperty(t)) {
+      if(!this.state.tiles.hasOwnProperty(t)) {
         continue;
       }
       if (t.index == index) {
@@ -52,7 +54,7 @@ class MysteryMatch extends React.Component {
                                                       this.setState(resp.game);
                                                     }));
     } else {
-      setTimeout((this.channel.push("not_match", {}})
+      setTimeout((this.channel.push("not_match", {})
                               .receive("ok", resp => {console.log("not a match", resp.game);
                                                       this.setState(resp.game);
                                                     })), 800);
@@ -69,13 +71,16 @@ class MysteryMatch extends React.Component {
   render() {
     let tiles = [];
     for (var i = 0; i < 4; i++) {
-      tiles[i] = new Array(4);
+      tiles[i] = [0, 0, 0, 0];
     }
 
+    console.log("tiles:", this.state.tiles)
     for (var t in this.state.tiles) {
-      if(!p.hasOwnProperty(t)) {
+
+      if(!this.state.tiles.hasOwnProperty(t)) {
         continue;
       }
+      console.log(t);
       tiles[t.i][t.j] = t;
       }
 

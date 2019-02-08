@@ -29,9 +29,10 @@ def init_tiles() do
     Map.put(tile_list, x, %{letter: List.pop_at(pool, 0),
     i: rem(x, 4), # remainder should give the correct column
     j: div(x, 4), # integer division should give the correct row
-    hidden: true # all tiles start hidden until clicked
-    index: x} # index so the state can be updated more easily
-  end)
+    hidden: true, # all tiles start hidden until clicked
+    index: x}) # index so the state can be updated more easily
+  end
+  )
 end
 
 # function to handle a letter being clicked
@@ -60,14 +61,13 @@ def on_click(tile, game) do
     |> Map.put(:clicks, clicks)
     |> Map.put(:first, tile)
 
-  end
-  # first has already been clicked so we need to check if this is a match
+
+
+else
     game
     |> Map.put(:tiles, new_tiles)
     |> Map.put(:clicks, clicks)
     |> Map.put(:second, tile)
-  else
-
   end
 end
 
@@ -77,7 +77,7 @@ def update_tiles(tile_list, tile) do
 
   key =
     tile_list
-    |> Enum.find(fn {key, val} -> val.index == i)
+    |> Enum.find(fn {key, val} -> val.index == i end)
     |> elem(0)
 
     # update the list with new tile
@@ -104,8 +104,8 @@ end
 # after 2 clicks have happened, need to forget what has been clicked
 def reset_clicked(game) do
   game
-  |> Map.put(clicks: clicks)
-  |> Map.put(second: tile)
+  |> Map.put(:first, %{})
+  |> Map.put(:second, %{})
 end
 
 # if not a match the tiles need to be re-hidden and the clicks forgotten
@@ -113,6 +113,15 @@ def not_match(game) do
   game
   |> hide_tile(game.first, game.second)
   |> reset_clicked
+end
+
+def client_view(game) do
+  %{
+      tiles: game.tiles,
+      clicks: game.clicks,
+      first: game.first,
+      second: game.second
+  }
 end
 
 end

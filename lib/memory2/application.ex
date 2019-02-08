@@ -9,7 +9,8 @@ defmodule Memory2.Application do
     # List all child processes to be supervised
     children = [
       # Start the endpoint when the application starts
-      Memory2Web.Endpoint
+      Memory2Web.Endpoint,
+      Memory2.BackupAgent,
       # Starts a worker by calling: Memory2.Worker.start_link(arg)
       # {Memory2.Worker, arg},
     ]

@@ -1,4 +1,4 @@
-defmodule Hangman.BackupAgent do
+defmodule Memory2.BackupAgent do
   use Agent
 
   # This is basically just a global mutable map.

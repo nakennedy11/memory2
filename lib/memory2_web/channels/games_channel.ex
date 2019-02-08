@@ -2,7 +2,10 @@ defmodule Memory2Web.GamesChannel do
   use Memory2Web, :channel
 
   alias Memory2.Game
+  alias Memory2.BackupAgent
 
+  # Most of this code and its formatting was at the least heavily inspired from
+  # Nat's Notes
   def join("games:" <> name, payload, socket) do
     if authorized?(payload) do
       game = BackupAgent.get(name) || Game.new()
@@ -45,7 +48,7 @@ end
 
   # handler for restartGame -> new
   def handle_in("new", %{  }, socket) do
-    game = Game.new(
+    game = Game.new()
     socket = assign(socket, :game, game)
     name = socket.assings[:name]
     BackupAgent.put(name, game)

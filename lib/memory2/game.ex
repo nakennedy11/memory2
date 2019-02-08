@@ -15,17 +15,6 @@ def new do
   }
 end
 
-# some data structure, probably a list, of tiles
-#   - these tiles will be some tuple with an x, y, a letter value, and a hidden boolean
-
-# Functions:
-# initiate list of tiles for the Game !
-# on click, will be passed the value of a tile
-#   - either update the state of the first
-#   - or if its the second tile, update the state to show it then check the match
-# Reset the state upon the reset button being clicked --- this is literally new
-
-# TODO: fix init_tiles so that it actually creates a map with all these bad boys
 # initiate the list of tiles for memory game with letter, i, j, and hidden bool
 def init_tiles() do
   # create a list of letters to be made into tiles, init empty list to add to

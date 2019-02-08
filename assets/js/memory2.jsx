@@ -10,11 +10,6 @@ class MysteryMatch extends React.Component {
   constructor(props) {
     super(props);
 
-
-
-    // initiate the buttons randomly
-    let tileList = this.initiateTiles();
-
     this.state = {
       tiles: {},
 	    clicks: 0,
@@ -52,12 +47,12 @@ class MysteryMatch extends React.Component {
 
   checkMatch(){
 		if (this.state.first.letter == this.state.second.letter) {
-      (this.channel.push("reset_click", this.state)
+      (this.channel.push("reset_click", {})
                               .receive("ok", resp => {console.log("match, reset_clicked", resp.game);
                                                       this.setState(resp.game);
                                                     }));
     } else {
-      setTimeout((this.channel.push("not_match", this.state)
+      setTimeout((this.channel.push("not_match", {}})
                               .receive("ok", resp => {console.log("not a match", resp.game);
                                                       this.setState(resp.game);
                                                     })), 800);
@@ -94,29 +89,60 @@ class MysteryMatch extends React.Component {
 	    	  <div className="column">{restartbutton}</div>
 	  	</div>
 	 	  <div className="row">
-	    	  <div className="column"> {<Tile ii={tiles[0][0].i} jj={tiles[0][0].j}
-              hidden={tiles[0][0].hidden} letter={tiles[0][0].letter} />} </div>
-	    	  <div className="column"> {tiles[0][1]} </div>
-	    	  <div className="column"> {tiles[0][2]} </div>
-	   	  <div className="column"> {tiles[0][3]} </div>
+	    	  <div className="column"> {<Tile hidden={tiles[0][0].hidden}
+                                          letter={tiles[0][0].letter}
+           onClick={this.tileClick.bind(this, tiles[0][0].index)} />} </div>
+	    	  <div className="column"> {<Tile hidden={tiles[0][1].hidden}
+                                          letter={tiles[0][1].letter}
+           onClick={this.tileClick.bind(this, tiles[0][1].index)} />} </div>
+	    	  <div className="column"> {<Tile hidden={tiles[0][2].hidden}
+                                          letter={tiles[0][2].letter}
+           onClick={this.tileClick.bind(this, tiles[0][2].index)} />} </div>
+	   	  <div className="column"> {<Tile hidden={tiles[0][3].hidden}
+                                        letter={tiles[0][3].letter}
+         onClick={this.tileClick.bind(this, tiles[0][3].index)} />} </div>
 	  	</div>
 	  	  <div className="row">
-	    	  <div className="column"> {tiles[1][0]} </div>
-	    	  <div className="column"> {tiles[1][1]} </div>
-	    	  <div className="column"> {tiles[1][2]} </div>
-	    	  <div className="column"> {tiles[1][3]} </div>
+	    	  <div className="column"> {<Tile hidden={tiles[1][0].hidden}
+                                          letter={tiles[1][0].letter}
+           onClick={this.tileClick.bind(this, tiles[1][0].index)} />} </div>
+	    	  <div className="column"> {<Tile hidden={tiles[1][1].hidden}
+                                          letter={tiles[1][1].letter}
+           onClick={this.tileClick.bind(this, tiles[1][1].index)} />} </div>
+	    	  <div className="column"> {<Tile hidden={tiles[1][2].hidden}
+                                          letter={tiles[1][2].letter}
+           onClick={this.tileClick.bind(this, tiles[1][2].index)} />} </div>
+	    	  <div className="column"> {<Tile hidden={tiles[1][3].hidden}
+                                          letter={tiles[1][3].letter}
+           onClick={this.tileClick.bind(this, tiles[1][3].index)} />} </div>
 	  	</div>
 	  	  <div className="row">
-	    	  <div className="column"> {tiles[2][0]} </div>
-	    	  <div className="column"> {tiles[2][1]} </div>
-	    	  <div className="column"> {tiles[2][2]} </div>
-	    	  <div className="column"> {tiles[2][3]} </div>
+	    	  <div className="column"> {<Tile hidden={tiles[2][0].hidden}
+                                          letter={tiles[2][0].letter}
+           onClick={this.tileClick.bind(this, tiles[2][0].index)} />} </div>
+	    	  <div className="column"> {<Tile hidden={tiles[2][1].hidden}
+                                          letter={tiles[2][1].letter}
+           onClick={this.tileClick.bind(this, tiles[2][1].index)} />} </div>
+	    	  <div className="column"> {<Tile hidden={tiles[2][2].hidden}
+                                          letter={tiles[2][2].letter}
+           onClick={this.tileClick.bind(this, tiles[2][2].index)} />} </div>
+	    	  <div className="column"> {<Tile hidden={tiles[2][3].hidden}
+                                          letter={tiles[2][3].letter}
+           onClick={this.tileClick.bind(this, tiles[2][3].index)} />} </div>
 	  	</div>
 	  	  <div className="row">
-	   	  <div className="column"> {tiles[3][0]} </div>
-	    	  <div className="column"> {tiles[3][1]} </div>
-	    	  <div className="column"> {tiles[3][2]} </div>
-	    	  <div className="column"> {tiles[3][3]} </div>
+	   	  <div className="column"> {<Tile hidden={tiles[3][0].hidden}
+                                        letter={tiles[3][0].letter}
+         onClick={this.tileClick.bind(this, tiles[3][0].index)} />} </div>
+	    	  <div className="column"> {<Tile hidden={tiles[3][1].hidden}
+                                          letter={tiles[3][1].letter}
+           onClick={this.tileClick.bind(this, tiles[3][1].index)} />} </div>
+	    	  <div className="column"> {<Tile hidden={tiles[3][2].hidden}
+                                          letter={tiles[3][2].letter}
+           onClick={this.tileClick.bind(this, tiles[3][2].index)} />} </div>
+	    	  <div className="column"> {<Tile hidden={tiles[3][3].hidden}
+                                          letter={tiles[3][3].letter}
+           onClick={this.tileClick.bind(this, tiles[3][3].index)} />} </div>
 	  	</div>
 		</div>
 	);
@@ -125,9 +151,9 @@ class MysteryMatch extends React.Component {
 
 function Tile(props) {
 	if (props.hidden) {
-		return <button className="tile" onClick={() => props.onClick(this, )}>???</button>
+		return <button className="tile" onClick={() => props.onClick(this, props.index)}>???</button>
 	}
 	else {
-		return <button className="tile">{props.tileletter}</button>
+		return <button className="tile">{props.letter}</button>
 	}
 }

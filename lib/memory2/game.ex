@@ -8,7 +8,7 @@ defmodule Memory2.Game do
 
 def new do
   %{
-    tiles: init_tiles(),
+    tiles: Map.values(init_tiles()),
     clicks: 0,
     first: %{},
     second: %{}
@@ -27,86 +27,86 @@ def init_tiles() do
   # hidden is to determine whether or not the letter for this tile is revealed
 
     tile_list
-    |> Map.put(0, %{letter: Enum.at(pool, 0),
-    i: 0, # remainder should give the correct column
-    j: 0, # integer division should give the correct row
-    hidden: true, # all tiles start hidden until clicked
-    index: 0})
-    |> Map.put(1, %{letter: Enum.at(pool, 1),
-    i: 1,
-    j: 0,
-    hidden: true,
-    index: 1})
-    |> Map.put(2, %{letter: Enum.at(pool, 2),
-    i: 2,
-    j: 0,
-    hidden: true,
-    index: 2})
-    |> Map.put(3, %{letter: Enum.at(pool, 3),
-    i: 3,
-    j: 0,
-    hidden: true,
-    index: 3})
-    |> Map.put(4, %{letter: Enum.at(pool, 4),
-    i: 0,
-    j: 1,
-    hidden: true,
-    index: 4})
-    |> Map.put(5, %{letter: Enum.at(pool, 5),
-    i: 1,
-    j: 1,
-    hidden: true,
-    index: 5})
-    |> Map.put(6, %{letter: Enum.at(pool, 6),
-    i: 2,
-    j: 1,
-    hidden: true,
-    index: 6})
-    |> Map.put(7, %{letter: Enum.at(pool, 7),
-    i: 3,
-    j: 1,
-    hidden: true,
-    index: 7})
-    |> Map.put(8, %{letter: Enum.at(pool, 8),
-    i: 0,
-    j: 2,
-    hidden: true,
-    index: 8})
-    |> Map.put(9, %{letter: Enum.at(pool, 9),
-    i: 1,
-    j: 2,
-    hidden: true,
-    index: 9})
-    |> Map.put(10, %{letter: Enum.at(pool, 10),
-    i: 2,
-    j: 2,
-    hidden: true,
-    index: 10})
-    |> Map.put(11, %{letter: Enum.at(pool, 11),
-    i: 3,
-    j: 2,
-    hidden: true,
-    index: 11})
-    |> Map.put(12, %{letter: Enum.at(pool, 12),
-    i: 0,
-    j: 3,
-    hidden: true,
-    index: 12})
-    |> Map.put(13, %{letter: Enum.at(pool, 13),
-    i: 1,
-    j: 3,
-    hidden: true,
-    index: 13})
-    |> Map.put(14, %{letter: Enum.at(pool, 14),
-    i: 2,
-    j: 3,
-    hidden: true,
-    index: 14})
-    |> Map.put(15, %{letter: Enum.at(pool, 15),
-    i: 3,
-    j: 3,
-    hidden: true,
-    index: 15})
+    |> Map.put(0, [Enum.at(pool, 0),
+    0, # remainder should give the correct column
+    0, # integer division should give the correct row
+    true, # all tiles start hidden until clicked
+    0])
+    |> Map.put(1, [Enum.at(pool, 1),
+    1,
+    0,
+    true,
+    1])
+    |> Map.put(2, [Enum.at(pool, 2),
+    2,
+    0,
+    true,
+    2])
+    |> Map.put(3, [Enum.at(pool, 3),
+    3,
+    0,
+    true,
+    3])
+    |> Map.put(4, [Enum.at(pool, 4),
+    0,
+    1,
+    true,
+    4])
+    |> Map.put(5, [Enum.at(pool, 5),
+    1,
+    1,
+    true,
+    5])
+    |> Map.put(6, [Enum.at(pool, 6),
+    2,
+    1,
+    true,
+    6])
+    |> Map.put(7, [Enum.at(pool, 7),
+    3,
+    1,
+    true,
+    7])
+    |> Map.put(8, [Enum.at(pool, 8),
+    0,
+    2,
+    true,
+    8])
+    |> Map.put(9, [Enum.at(pool, 9),
+    1,
+    2,
+    true,
+    9])
+    |> Map.put(10, [Enum.at(pool, 10),
+    2,
+    2,
+    true,
+    10])
+    |> Map.put(11, [Enum.at(pool, 11),
+    3,
+    2,
+    true,
+    11])
+    |> Map.put(12, [Enum.at(pool, 12),
+    0,
+    3,
+    true,
+    12])
+    |> Map.put(13, [Enum.at(pool, 13),
+    1,
+    3,
+    true,
+    13])
+    |> Map.put(14, [Enum.at(pool, 14),
+    2,
+    3,
+    true,
+    14])
+    |> Map.put(15, [Enum.at(pool, 15),
+    3,
+    3,
+    true,
+    15])
 end
 
 # function to handle a letter being clicked
@@ -155,7 +155,7 @@ def update_tiles(tile_list, tile) do
     |> elem(0)
 
     # update the list with new tile
-    Map.put(tile_list, key, tile)
+    tile_list = Map.put(tile_list, key, tile)
 end
 
 # update a tile to be hidden again in the event 2 clicked but not a match
@@ -172,7 +172,7 @@ def hide_tile(game, tile1, tile2) do
     |> update_tiles(tile1)
     |> update_tiles(tile2)
 
-  Map.put(game, :tiles, new_tiles)
+  game = Map.put(game, :tiles, new_tiles)
 end
 
 # after 2 clicks have happened, need to forget what has been clicked

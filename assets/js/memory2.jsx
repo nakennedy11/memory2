@@ -13,15 +13,16 @@ class MysteryMatch extends React.Component {
     this.channel = props.channel;
 
     this.state = {
-      tiles: {},
+      tiles: [],
 	    clicks: 0,
 	    first: {},
 	    second: {},
     };
 
-    this.channel.join()
+    this.channel
+    .join()
     .receive("ok", resp=> {
-      console.log("Jouined successfully", resp);
+      console.log("Joined successfully", resp.game);
       this.setState(resp.game);
     })
     .receive("error", resp => { console.log("Unable to join", resp); })
@@ -70,13 +71,14 @@ class MysteryMatch extends React.Component {
 
   render() {
     //let tiles = [];
-/*    for (var i = 0; i < 4; i++) {
-      tiles[i] = [0, 0, 0, 0];
-    }
+//    for (var i = 0; i < 4; i++) {
+//      tiles[i] = [0, 0, 0, 0];
+//    }
 
-    console.log("tiles:", this.state.tiles);
+    //let tiles = Object.values(this.state);
+    console.log("state:", this.state);
     console.log("TILETEST", this.state.tiles[0]);
-    for (var t in this.state.tiles) {
+/*    for (var t in this.state.tiles) {
 
       if(!this.state.tiles.hasOwnProperty(t)) {
         continue;
@@ -85,8 +87,9 @@ class MysteryMatch extends React.Component {
       tiles[t.i][t.j] = t;
       }
 */
-let tiles = Object.values(this.state.tiles);
-console.log("array of tiles:", tiles);
+// let tiles = this.state.tiles;
+// console.log("array of tiles:", this.state.tiles);
+// console.log("tile 0 attempt:", tiles[0])
 	let restartbutton = <button className="restart" onClick={this.restartGame.bind(this)}> Restart Game </button>;
 
 	return (

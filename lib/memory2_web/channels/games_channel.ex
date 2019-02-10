@@ -47,10 +47,10 @@ end
   end
 
   # handler for restartGame -> new
-  def handle_in("new", %{  }, socket) do
+  def handle_in("new", %{}, socket) do
     game = Game.new()
     socket = assign(socket, :game, game)
-    name = socket.assings[:name]
+    name = socket.assigns[:name]
     BackupAgent.put(name, game)
     {:reply, {:ok, %{"game" => Game.client_view(game)}}, socket}
   end

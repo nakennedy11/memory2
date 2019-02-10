@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import _ from 'lodash';
 
 export default function game_init(root, channel) {
-  ReactDOM.render(<MysteryMatch channel={channel}/>, root);
+  ReactDOM.render(<Mystery2 channel={channel}/>, root);
 }
 
-class MysteryMatch extends React.Component {
+class Mystery2 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -18,7 +18,7 @@ class MysteryMatch extends React.Component {
 	    first: {},
 	    second: {},
     };
-
+console.log("about to join", props);
     this.channel
     .join()
     .receive("ok", resp=> {

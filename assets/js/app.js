@@ -20,7 +20,7 @@ import game_init from "./memory2";
 
 let channel = socket.channel("games:" + window.gameName, {});
 $(() => {
-  let root = $('#root')[0];
+  let root = document.getElementById('root');
   if (root) {
     game_init(root, channel);
   }

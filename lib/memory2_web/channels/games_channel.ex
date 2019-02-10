@@ -6,7 +6,7 @@ defmodule Memory2Web.GamesChannel do
 
   # Most of this code and its formatting was at the least heavily inspired from
   # Nat's Notes
-  def join("games:" <> name, payload, socket) do
+  def join("games" <> name, payload, socket) do
     if authorized?(payload) do
       game = BackupAgent.get(name) || Game.new()
       BackupAgent.put(name, game)

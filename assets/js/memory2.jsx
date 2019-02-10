@@ -25,7 +25,7 @@ class MysteryMatch extends React.Component {
       console.log("Joined successfully", resp.game);
       this.setState(resp.game);
     })
-    .receive("error", resp => { console.log("Unable to join", resp); })
+    .receive("error", resp => { console.log("Unable to join", resp); });
   }
 
   tileClick(index) {
@@ -41,7 +41,7 @@ class MysteryMatch extends React.Component {
     this.channel.push("click", tile)
       .receive("ok", resp => {console.log("click", resp.game);
                               this.setState(resp.game);
-                             })
+                            });
 
     if (!(_.isEmpty(state.second))) {
       this.checkMatch();
@@ -50,10 +50,10 @@ class MysteryMatch extends React.Component {
 
   checkMatch(){
 		if (this.state.first.letter == this.state.second.letter) {
-      (this.channel.push("reset_click", {})
+      this.channel.push("reset_click", {})
                               .receive("ok", resp => {console.log("match, reset_clicked", resp.game);
                                                       this.setState(resp.game);
-                                                    }));
+                                                    });
     } else {
       setTimeout((this.channel.push("not_match", {})
                               .receive("ok", resp => {console.log("not a match", resp.game);

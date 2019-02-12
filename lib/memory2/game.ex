@@ -1,25 +1,25 @@
 defmodule Memory2.Game do
 
-# game state
-# - list of all tile-tuples in the game
-# - # of clicks
-# - first clicked value
-# - second clicked value
+  # game state
+  # - list of all tile-tuples in the game
+  # - # of clicks
+  # - first clicked value
+  # - second clicked value
 
-def new do
-  %{
+  def new do
+    %{
     tiles: Map.values(init_tiles()),
     clicks: 0,
-    first: %{},
-    second: %{}
+    first: [],
+    second: []
   }
-end
+  end
 
 # initiate the list of tiles for memory game with letter, i, j, and hidden bool
 def init_tiles() do
   # create a list of letters to be made into tiles, init empty list to add to
   pool = Enum.shuffle(["a", "b", "c", "d", "e", "f", "g", "h", "a", "b", "c",
-                        "d", "e", "f", "g", "h"])
+                       "d", "e", "f", "g", "h"])
   tile_list = %{}
   # go through all 16 letters in the pool and create tiles with them
   # letter is the first random letter from pool, i and j are palcement in the
@@ -115,13 +115,12 @@ end
 def on_click(tile, game) do
   # check if first || second is empty
   # converts to a list and checks length to see if first has been instantiated
-  first_clicked = Tuple.to_list(game.first).length == 0
-  second_clicked = Tuple.to_list(game.second).length == 0
-  i = tile.index # get the index to replace the tile
+  first_clicked = List.first(game.first) && true
+  second_clicked = List.first(game.second) && true
+  i = Enum.at(tile, 4)    # get the index to replace the tile
 
   # get the list of tiles and update it not to be hidden
-  tile
-  |> Map.put(:hidden, false) # make the tile letter visible
+  tile = List.replace_at(tile, 3, false)
 
   tile_list = game.tiles
   new_tiles = update_tiles(tile_list, tile)
@@ -135,9 +134,7 @@ def on_click(tile, game) do
     |> Map.put(:clicks, clicks)
     |> Map.put(:first, tile)
 
-
-
-else
+  else
     game
     |> Map.put(:tiles, new_tiles)
     |> Map.put(:clicks, clicks)
@@ -145,32 +142,26 @@ else
   end
 end
 
-#update a tile to be either hidden or not with hide boolean
+# replace the given tile with the one at its matched index in the list
 def update_tiles(tile_list, tile) do
-  i = tile.index
 
-  key =
-    tile_list
-    |> Enum.find(fn {key, val} -> val.index == i end)
-    |> elem(0)
+  i = Enum.at(tile, 4)
 
-    # update the list with new tile
-    tile_list = Map.put(tile_list, key, tile)
+  # update the list with new tile
+  tile_list = List.replace_at(tile_list, i, tile)
 end
 
 # update a tile to be hidden again in the event 2 clicked but not a match
 def hide_tile(game, tile1, tile2) do
-  tile1
-  |> Map.put(:hidden, true)
 
-  tile2
-  |> Map.put(:hidden, true)
+  tile1 = List.replace_at(tile1, 3, true)
+
+  tile2 = List.replace_at(tile2, 3, true)
 
   tiles = game.tiles
-  new_tiles =
-    tiles
-    |> update_tiles(tile1)
-    |> update_tiles(tile2)
+
+  new_tiles = update_tiles(tiles, tile1)
+  new_tiles = update_tiles(new_tiles, tile2)
 
   game = Map.put(game, :tiles, new_tiles)
 end
@@ -178,23 +169,22 @@ end
 # after 2 clicks have happened, need to forget what has been clicked
 def reset_clicked(game) do
   game
-  |> Map.put(:first, %{})
-  |> Map.put(:second, %{})
+  |> Map.put(:first, [])
+  |> Map.put(:second, [])
 end
 
 # if not a match the tiles need to be re-hidden and the clicks forgotten
 def not_match(game) do
-  game
-  |> hide_tile(game.first, game.second)
-  |> reset_clicked
+  game = hide_tile(game, game.first, game.second)
+  game = reset_clicked(game)
 end
 
 def client_view(game) do
   %{
-      tiles: game.tiles,
-      clicks: game.clicks,
-      first: game.first,
-      second: game.second
+    tiles: game.tiles,
+    clicks: game.clicks,
+    first: game.first,
+    second: game.second
   }
 end
 

@@ -23,7 +23,7 @@ end
   def handle_in("click", %{ "tile" => tile }, socket) do
     game = Game.on_click(tile, socket.assigns[:game])
     socket = assign(socket, :game, game)
-    name = socket.assings[:name]
+    name = socket.assigns[:name]
     BackupAgent.put(name, game)
     {:reply, {:ok, %{"game" => Game.client_view(game)}}, socket}
   end
@@ -32,7 +32,7 @@ end
   def handle_in("reset_click", %{  }, socket) do
     game = Game.reset_clicked(socket.assigns[:game])
     socket = assign(socket, :game, game)
-    name = socket.assings[:name]
+    name = socket.assigns[:name]
     BackupAgent.put(name, game)
     {:reply, {:ok, %{"game" => Game.client_view(game)}}, socket}
   end
@@ -41,7 +41,7 @@ end
   def handle_in("not_match", %{  }, socket) do
     game = Game.reset_clicked(socket.assigns[:game])
     socket = assign(socket, :game, game)
-    name = socket.assings[:name]
+    name = socket.assigns[:name]
     BackupAgent.put(name, game)
     {:reply, {:ok, %{"game" => Game.client_view(game)}}, socket}
   end

@@ -12,13 +12,18 @@ class Mystery2 extends React.Component {
 
     this.channel = props.channel;
 
+var mat = [];
+for (var i = 0; i < 16; i++) {
+    mat[i] = new Array(5);
+}
+
     this.state = {
-      tiles: [],
+      tiles: mat,
 	    clicks: 0,
-	    first: {},
-	    second: {},
+	    first: [],
+	    second: [],
     };
-console.log("about to join", props);
+
     this.channel
     .join()
     .receive("ok", resp=> {
@@ -29,27 +34,26 @@ console.log("about to join", props);
   }
 
   tileClick(index) {
-    for (var t in this.state.tiles) {
-      if(!this.state.tiles.hasOwnProperty(t)) {
-        continue;
-      }
-      if (t.index == index) {
-        let tile = t;
-      }
-    }
-
-    this.channel.push("click", tile)
+    let tile = this.state.tiles[index];
+    console.log("in tileClick, tile is ", tile);
+    this.channel.push("click", {tile: tile})
       .receive("ok", resp => {console.log("click", resp.game);
                               this.setState(resp.game);
                             });
 
-    if (!(_.isEmpty(state.second))) {
+    let first_letter = this.state.first[0];
+    console.log("in tile click, sec is supposedly:", sec);
+/*
+    if (first_letter != "") {
+    console.log("in if statement of tile click");
       this.checkMatch();
-    }
+    }*/
   }
 
   checkMatch(){
-		if (this.state.first.letter == this.state.second.letter) {
+    console.log("checking match", this.state.first[0], this.state.second[0]);
+
+    if (this.state.first[0] == this.state.second[0]) {
       this.channel.push("reset_click", {})
                               .receive("ok", resp => {console.log("match, reset_clicked", resp.game);
                                                       this.setState(resp.game);
@@ -70,93 +74,77 @@ console.log("about to join", props);
   }
 
   render() {
-    //let tiles = [];
-//    for (var i = 0; i < 4; i++) {
-//      tiles[i] = [0, 0, 0, 0];
-//    }
 
-    //let tiles = Object.values(this.state);
-    console.log("state:", this.state);
-    console.log("TILETEST", this.state.tiles[0]);
-/*    for (var t in this.state.tiles) {
+ let tiles = this.state.tiles;
 
-      if(!this.state.tiles.hasOwnProperty(t)) {
-        continue;
-      }
-      console.log(t);
-      tiles[t.i][t.j] = t;
-      }
-*/
-// let tiles = this.state.tiles;
-// console.log("array of tiles:", this.state.tiles);
-// console.log("tile 0 attempt:", tiles[0])
-	let restartbutton = <button className="restart" onClick={this.restartGame.bind(this)}> Restart Game </button>;
+let restartbutton = <button className="restart" onClick={this.restartGame.bind(this)}> Restart Game </button>;
 
-	return (
+return (
 		<div>
     	  	  <h1> Memory Matching </h1>
-	  	  <div className="row">
+      <div className="row">
 	    	  <div className="column">Clicks: {this.state.clicks}</div>
 	    	  <div className="column">{restartbutton}</div>
-	  	</div>
+	  	  </div>
 	 	  <div className="row">
-	    	  <div className="column"> {<Tile hidden={tiles[0].hidden}
-                                          letter={tiles[0].letter}
-           onClick={this.tileClick.bind(this, tiles[0].index)} />} </div>
-	    	  <div className="column"> {<Tile hidden={tiles[0][1].hidden}
-                                          letter={tiles[0][1].letter}
-           onClick={this.tileClick.bind(this, tiles[0][1].index)} />} </div>
-	    	  <div className="column"> {<Tile hidden={tiles[0][2].hidden}
-                                          letter={tiles[0][2].letter}
-           onClick={this.tileClick.bind(this, tiles[0][2].index)} />} </div>
-	   	  <div className="column"> {<Tile hidden={tiles[0][3].hidden}
-                                        letter={tiles[0][3].letter}
-         onClick={this.tileClick.bind(this, tiles[0][3].index)} />} </div>
+	    	  <div className="column"> {<Tile hidden={tiles[0][3]}
+                                          letter={tiles[0][0]} 
+           onClick={this.tileClick.bind(this, tiles[0][4])} />} </div>
+	    	  <div className="column"> {<Tile hidden={tiles[1][3]}
+                                          letter={tiles[1][0]}
+           onClick={this.tileClick.bind(this, tiles[1][4])} />} </div>
+	    	  <div className="column"> {<Tile hidden={tiles[2][3]}
+                                          letter={tiles[2][0]}
+           onClick={this.tileClick.bind(this, tiles[2][4])} />} </div>
+	   	  <div className="column"> {<Tile hidden={tiles[3][3]}
+                                        letter={tiles[3][0]}
+         onClick={this.tileClick.bind(this, tiles[3][4])} />} </div>
 	  	</div>
 	  	  <div className="row">
-	    	  <div className="column"> {<Tile hidden={tiles[1][0].hidden}
-                                          letter={tiles[1][0].letter}
-           onClick={this.tileClick.bind(this, tiles[1][0].index)} />} </div>
-	    	  <div className="column"> {<Tile hidden={tiles[1][1].hidden}
-                                          letter={tiles[1][1].letter}
-           onClick={this.tileClick.bind(this, tiles[1][1].index)} />} </div>
-	    	  <div className="column"> {<Tile hidden={tiles[1][2].hidden}
-                                          letter={tiles[1][2].letter}
-           onClick={this.tileClick.bind(this, tiles[1][2].index)} />} </div>
-	    	  <div className="column"> {<Tile hidden={tiles[1][3].hidden}
-                                          letter={tiles[1][3].letter}
-           onClick={this.tileClick.bind(this, tiles[1][3].index)} />} </div>
+	    	  <div className="column"> {<Tile hidden={tiles[4][3]}
+                                          letter={tiles[4][0]}
+           onClick={this.tileClick.bind(this, tiles[4][4])} />} </div>
+	    	  <div className="column"> {<Tile hidden={tiles[5][3]}
+                                          letter={tiles[5][0]}
+           onClick={this.tileClick.bind(this, tiles[5][4])} />} </div>
+	    	  <div className="column"> {<Tile hidden={tiles[6][3]}
+                                          letter={tiles[6][0]}
+           onClick={this.tileClick.bind(this, tiles[6][4])} />} </div>
+	    	  <div className="column"> {<Tile hidden={tiles[7][3]}
+                                          letter={tiles[7][0]}
+           onClick={this.tileClick.bind(this, tiles[7][4])} />} </div>
 	  	</div>
 	  	  <div className="row">
-	    	  <div className="column"> {<Tile hidden={tiles[2][0].hidden}
-                                          letter={tiles[2][0].letter}
-           onClick={this.tileClick.bind(this, tiles[2][0].index)} />} </div>
-	    	  <div className="column"> {<Tile hidden={tiles[2][1].hidden}
-                                          letter={tiles[2][1].letter}
-           onClick={this.tileClick.bind(this, tiles[2][1].index)} />} </div>
-	    	  <div className="column"> {<Tile hidden={tiles[2][2].hidden}
-                                          letter={tiles[2][2].letter}
-           onClick={this.tileClick.bind(this, tiles[2][2].index)} />} </div>
-	    	  <div className="column"> {<Tile hidden={tiles[2][3].hidden}
-                                          letter={tiles[2][3].letter}
-           onClick={this.tileClick.bind(this, tiles[2][3].index)} />} </div>
+	    	  <div className="column"> {<Tile hidden={tiles[8][3]}
+                                          letter={tiles[8][0]}
+           onClick={this.tileClick.bind(this, tiles[8][4])} />} </div>
+	    	  <div className="column"> {<Tile hidden={tiles[9][3]}
+                                          letter={tiles[9][0]}
+           onClick={this.tileClick.bind(this, tiles[9][4])} />} </div>
+	    	  <div className="column"> {<Tile hidden={tiles[10][3]}
+                                          letter={tiles[10][0]}
+           onClick={this.tileClick.bind(this, tiles[10][4])} />} </div>
+	    	  <div className="column"> {<Tile hidden={tiles[11][3]}
+                                          letter={tiles[11][0]}
+           onClick={this.tileClick.bind(this, tiles[11][4])} />} </div>
 	  	</div>
 	  	  <div className="row">
-	   	  <div className="column"> {<Tile hidden={tiles[3][0].hidden}
-                                        letter={tiles[3][0].letter}
-         onClick={this.tileClick.bind(this, tiles[3][0].index)} />} </div>
-	    	  <div className="column"> {<Tile hidden={tiles[3][1].hidden}
-                                          letter={tiles[3][1].letter}
-           onClick={this.tileClick.bind(this, tiles[3][1].index)} />} </div>
-	    	  <div className="column"> {<Tile hidden={tiles[3][2].hidden}
-                                          letter={tiles[3][2].letter}
-           onClick={this.tileClick.bind(this, tiles[3][2].index)} />} </div>
-	    	  <div className="column"> {<Tile hidden={tiles[3][3].hidden}
-                                          letter={tiles[3][3].letter}
-           onClick={this.tileClick.bind(this, tiles[3][3].index)} />} </div>
+	   	  <div className="column"> {<Tile hidden={tiles[12][3] }
+                                        letter={tiles[12][0] }
+         onClick={this.tileClick.bind(this, tiles[12][4])} />} </div>
+	    	  <div className="column"> {<Tile hidden={tiles[13][3]}
+                                          letter={tiles[13][0]}
+           onClick={this.tileClick.bind(this, tiles[13][4])} />} </div>
+	    	  <div className="column"> {<Tile hidden={tiles[14][3]}
+                                          letter={tiles[14][0]}
+           onClick={this.tileClick.bind(this, tiles[14][4])} />} </div>
+	    	  <div className="column"> {<Tile hidden={tiles[15][3]}
+                                          letter={tiles[15][0]}
+           onClick={this.tileClick.bind(this, tiles[15][4])} />} </div>
 	  	</div>
 		</div>
 	);
+  
   }
 }
 

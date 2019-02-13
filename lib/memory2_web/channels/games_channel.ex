@@ -39,7 +39,7 @@ end
 
   # handler for checkMatch -> not_match
   def handle_in("not_match", %{  }, socket) do
-    game = Game.reset_clicked(socket.assigns[:game])
+    game = Game.not_match(socket.assigns[:game])
     socket = assign(socket, :game, game)
     name = socket.assigns[:name]
     BackupAgent.put(name, game)

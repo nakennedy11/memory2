@@ -35,35 +35,25 @@ for (var i = 0; i < 16; i++) {
 
   tileClick(index) {
     let tile = this.state.tiles[index];
-    console.log("in tileClick, tile is ", tile);
+
     this.channel.push("click", {tile: tile})
       .receive("ok", resp => {console.log("click", resp.game);
                               this.setState(resp.game);
                             });
-
-    let first_letter = this.state.first[0];
-    console.log("in tile click, sec is supposedly:", sec);
-/*
-    if (first_letter != "") {
-    console.log("in if statement of tile click");
-      this.checkMatch();
-    }*/
   }
 
   checkMatch(){
-    console.log("checking match", this.state.first[0], this.state.second[0]);
-
     if (this.state.first[0] == this.state.second[0]) {
       this.channel.push("reset_click", {})
                               .receive("ok", resp => {console.log("match, reset_clicked", resp.game);
                                                       this.setState(resp.game);
                                                     });
     } else {
-      setTimeout((this.channel.push("not_match", {})
+    setTimeout(() => {this.channel.push("not_match", {})
                               .receive("ok", resp => {console.log("not a match", resp.game);
                                                       this.setState(resp.game);
-                                                    })), 800);
-    }
+                                                    });}, 800); 
+ }
 	}
 
   // sets the game back to a starting state with a new set of random tiles
@@ -77,7 +67,16 @@ for (var i = 0; i < 16; i++) {
 
  let tiles = this.state.tiles;
 
-let restartbutton = <button className="restart" onClick={this.restartGame.bind(this)}> Restart Game </button>;
+ let restartbutton = <button className="restart" onClick={this.restartGame.bind(this)}> Restart Game </button>;
+
+
+
+ let first_letter = this.state.first[0];
+ let sec_letter =  this.state.second[0];
+
+ if (first_letter != null && sec_letter != null) {
+    this.checkMatch();
+ }
 
 return (
 		<div>

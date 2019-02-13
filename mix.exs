@@ -4,7 +4,7 @@ defmodule Memory2.MixProject do
   def project do
     [
       app: :memory2,
-      version: "0.1.0",
+      version: "2.0.0",
       elixir: "~> 1.5",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
@@ -32,6 +32,7 @@ defmodule Memory2.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:distillery, "~> 2.0"},
       {:phoenix, "~> 1.4.0"},
       {:phoenix_pubsub, "~> 1.1"},
       {:phoenix_html, "~> 2.11"},

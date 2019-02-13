@@ -12,9 +12,9 @@
 ~h
 # Command Line History (newest to oldest):
 :wq
-|2,0,1549777122,,"wq"
+|2,0,1550023092,,"wq"
 :q
-|2,0,1549777013,,"q"
+|2,0,1550023048,,"q"
 
 # Search String History (newest to oldest):
 
@@ -27,40 +27,120 @@
 # Registers:
 
 # File marks:
-'0  17  0  ~/start.sh
-|4,48,17,0,1549777122,"~/start.sh"
-'1  26  0  ~/deploy.sh
-|4,49,26,0,1549777013,"~/deploy.sh"
-'2  19  22  ~/deploy.sh
-|4,50,19,22,1549776707,"~/deploy.sh"
-'3  19  22  ~/deploy.sh
-|4,51,19,22,1549776707,"~/deploy.sh"
-'4  27  34  ~/deploy.sh
-|4,52,27,34,1549776528,"~/deploy.sh"
-'5  27  34  ~/deploy.sh
-|4,53,27,34,1549776528,"~/deploy.sh"
-'6  27  34  ~/deploy.sh
-|4,54,27,34,1549776528,"~/deploy.sh"
-'7  27  34  ~/deploy.sh
-|4,55,27,34,1549776528,"~/deploy.sh"
-'8  6  27  ~/deploy.sh
-|4,56,6,27,1549776268,"~/deploy.sh"
-'9  6  27  ~/deploy.sh
-|4,57,6,27,1549776268,"~/deploy.sh"
+'0  12  33  /etc/nginx/sites-available/memory2.nginx
+|4,48,12,33,1550023092,"/etc/nginx/sites-available/memory2.nginx"
+'1  4  15  ~/deploy.sh
+|4,49,4,15,1550023065,"~/deploy.sh"
+'2  17  0  ~/start.sh
+|4,50,17,0,1550023048,"~/start.sh"
+'3  17  0  ~/start.sh
+|4,51,17,0,1549777122,"~/start.sh"
+'4  26  0  ~/deploy.sh
+|4,52,26,0,1549777013,"~/deploy.sh"
+'5  26  0  ~/deploy.sh
+|4,53,26,0,1549777013,"~/deploy.sh"
+'6  19  22  ~/deploy.sh
+|4,54,19,22,1549776707,"~/deploy.sh"
+'7  19  22  ~/deploy.sh
+|4,55,19,22,1549776707,"~/deploy.sh"
+'8  19  22  ~/deploy.sh
+|4,56,19,22,1549776707,"~/deploy.sh"
+'9  19  22  ~/deploy.sh
+|4,57,19,22,1549776707,"~/deploy.sh"
 
 # Jumplist (newest first):
+-'  12  33  /etc/nginx/sites-available/memory2.nginx
+|4,39,12,33,1550023092,"/etc/nginx/sites-available/memory2.nginx"
+-'  1  0  /etc/nginx/sites-available/memory2.nginx
+|4,39,1,0,1550023082,"/etc/nginx/sites-available/memory2.nginx"
+-'  4  15  ~/deploy.sh
+|4,39,4,15,1550023065,"~/deploy.sh"
+-'  4  15  ~/deploy.sh
+|4,39,4,15,1550023065,"~/deploy.sh"
+-'  26  0  ~/deploy.sh
+|4,39,26,0,1550023051,"~/deploy.sh"
+-'  26  0  ~/deploy.sh
+|4,39,26,0,1550023051,"~/deploy.sh"
+-'  17  0  ~/start.sh
+|4,39,17,0,1550023048,"~/start.sh"
+-'  17  0  ~/start.sh
+|4,39,17,0,1550023048,"~/start.sh"
+-'  17  0  ~/start.sh
+|4,39,17,0,1550023048,"~/start.sh"
+-'  17  0  ~/start.sh
+|4,39,17,0,1550023048,"~/start.sh"
 -'  17  0  ~/start.sh
 |4,39,17,0,1549777122,"~/start.sh"
+-'  17  0  ~/start.sh
+|4,39,17,0,1549777122,"~/start.sh"
+-'  17  0  ~/start.sh
+|4,39,17,0,1549777122,"~/start.sh"
+-'  17  0  ~/start.sh
+|4,39,17,0,1549777122,"~/start.sh"
+-'  12  39  ~/start.sh
+|4,39,12,39,1549777100,"~/start.sh"
+-'  12  39  ~/start.sh
+|4,39,12,39,1549777100,"~/start.sh"
+-'  12  39  ~/start.sh
+|4,39,12,39,1549777100,"~/start.sh"
+-'  12  39  ~/start.sh
+|4,39,12,39,1549777100,"~/start.sh"
+-'  12  39  ~/start.sh
+|4,39,12,39,1549777100,"~/start.sh"
+-'  12  39  ~/start.sh
+|4,39,12,39,1549777100,"~/start.sh"
+-'  12  39  ~/start.sh
+|4,39,12,39,1549777100,"~/start.sh"
 -'  12  39  ~/start.sh
 |4,39,12,39,1549777100,"~/start.sh"
 -'  26  0  ~/deploy.sh
 |4,39,26,0,1549777013,"~/deploy.sh"
 -'  26  0  ~/deploy.sh
 |4,39,26,0,1549777013,"~/deploy.sh"
+-'  26  0  ~/deploy.sh
+|4,39,26,0,1549777013,"~/deploy.sh"
+-'  26  0  ~/deploy.sh
+|4,39,26,0,1549777013,"~/deploy.sh"
+-'  26  0  ~/deploy.sh
+|4,39,26,0,1549777013,"~/deploy.sh"
+-'  26  0  ~/deploy.sh
+|4,39,26,0,1549777013,"~/deploy.sh"
+-'  26  0  ~/deploy.sh
+|4,39,26,0,1549777013,"~/deploy.sh"
+-'  26  0  ~/deploy.sh
+|4,39,26,0,1549777013,"~/deploy.sh"
 -'  19  22  ~/deploy.sh
 |4,39,19,22,1549777007,"~/deploy.sh"
 -'  19  22  ~/deploy.sh
 |4,39,19,22,1549777007,"~/deploy.sh"
+-'  19  22  ~/deploy.sh
+|4,39,19,22,1549777007,"~/deploy.sh"
+-'  19  22  ~/deploy.sh
+|4,39,19,22,1549777007,"~/deploy.sh"
+-'  19  22  ~/deploy.sh
+|4,39,19,22,1549777007,"~/deploy.sh"
+-'  19  22  ~/deploy.sh
+|4,39,19,22,1549777007,"~/deploy.sh"
+-'  19  22  ~/deploy.sh
+|4,39,19,22,1549777007,"~/deploy.sh"
+-'  19  22  ~/deploy.sh
+|4,39,19,22,1549777007,"~/deploy.sh"
+-'  19  22  ~/deploy.sh
+|4,39,19,22,1549777007,"~/deploy.sh"
+-'  19  22  ~/deploy.sh
+|4,39,19,22,1549777007,"~/deploy.sh"
+-'  19  22  ~/deploy.sh
+|4,39,19,22,1549776707,"~/deploy.sh"
+-'  19  22  ~/deploy.sh
+|4,39,19,22,1549776707,"~/deploy.sh"
+-'  19  22  ~/deploy.sh
+|4,39,19,22,1549776707,"~/deploy.sh"
+-'  19  22  ~/deploy.sh
+|4,39,19,22,1549776707,"~/deploy.sh"
+-'  19  22  ~/deploy.sh
+|4,39,19,22,1549776707,"~/deploy.sh"
+-'  19  22  ~/deploy.sh
+|4,39,19,22,1549776707,"~/deploy.sh"
 -'  19  22  ~/deploy.sh
 |4,39,19,22,1549776707,"~/deploy.sh"
 -'  19  22  ~/deploy.sh
@@ -73,6 +153,46 @@
 |4,39,27,34,1549776667,"~/deploy.sh"
 -'  27  34  ~/deploy.sh
 |4,39,27,34,1549776667,"~/deploy.sh"
+-'  27  34  ~/deploy.sh
+|4,39,27,34,1549776667,"~/deploy.sh"
+-'  27  34  ~/deploy.sh
+|4,39,27,34,1549776667,"~/deploy.sh"
+-'  27  34  ~/deploy.sh
+|4,39,27,34,1549776667,"~/deploy.sh"
+-'  27  34  ~/deploy.sh
+|4,39,27,34,1549776667,"~/deploy.sh"
+-'  27  34  ~/deploy.sh
+|4,39,27,34,1549776667,"~/deploy.sh"
+-'  27  34  ~/deploy.sh
+|4,39,27,34,1549776667,"~/deploy.sh"
+-'  27  34  ~/deploy.sh
+|4,39,27,34,1549776667,"~/deploy.sh"
+-'  27  34  ~/deploy.sh
+|4,39,27,34,1549776667,"~/deploy.sh"
+-'  27  34  ~/deploy.sh
+|4,39,27,34,1549776667,"~/deploy.sh"
+-'  27  34  ~/deploy.sh
+|4,39,27,34,1549776667,"~/deploy.sh"
+-'  27  34  ~/deploy.sh
+|4,39,27,34,1549776667,"~/deploy.sh"
+-'  27  34  ~/deploy.sh
+|4,39,27,34,1549776667,"~/deploy.sh"
+-'  27  34  ~/deploy.sh
+|4,39,27,34,1549776667,"~/deploy.sh"
+-'  27  34  ~/deploy.sh
+|4,39,27,34,1549776667,"~/deploy.sh"
+-'  27  34  ~/deploy.sh
+|4,39,27,34,1549776528,"~/deploy.sh"
+-'  27  34  ~/deploy.sh
+|4,39,27,34,1549776528,"~/deploy.sh"
+-'  27  34  ~/deploy.sh
+|4,39,27,34,1549776528,"~/deploy.sh"
+-'  27  34  ~/deploy.sh
+|4,39,27,34,1549776528,"~/deploy.sh"
+-'  27  34  ~/deploy.sh
+|4,39,27,34,1549776528,"~/deploy.sh"
+-'  27  34  ~/deploy.sh
+|4,39,27,34,1549776528,"~/deploy.sh"
 -'  27  34  ~/deploy.sh
 |4,39,27,34,1549776528,"~/deploy.sh"
 -'  27  34  ~/deploy.sh
@@ -90,170 +210,71 @@
 -'  6  27  ~/deploy.sh
 |4,39,6,27,1549776514,"~/deploy.sh"
 -'  6  27  ~/deploy.sh
-|4,39,6,27,1549776268,"~/deploy.sh"
+|4,39,6,27,1549776514,"~/deploy.sh"
 -'  6  27  ~/deploy.sh
-|4,39,6,27,1549776268,"~/deploy.sh"
--'  6  22  ~/deploy.sh
-|4,39,6,22,1549776102,"~/deploy.sh"
--'  6  22  ~/deploy.sh
-|4,39,6,22,1549776102,"~/deploy.sh"
--'  27  43  ~/deploy.sh
-|4,39,27,43,1549776070,"~/deploy.sh"
--'  27  43  ~/deploy.sh
-|4,39,27,43,1549776070,"~/deploy.sh"
--'  27  43  ~/deploy.sh
-|4,39,27,43,1549776070,"~/deploy.sh"
--'  27  43  ~/deploy.sh
-|4,39,27,43,1549776070,"~/deploy.sh"
--'  12  45  ~/start.sh
-|4,39,12,45,1549775760,"~/start.sh"
--'  12  45  ~/start.sh
-|4,39,12,45,1549775760,"~/start.sh"
--'  12  45  ~/start.sh
-|4,39,12,45,1549775760,"~/start.sh"
--'  12  45  ~/start.sh
-|4,39,12,45,1549775760,"~/start.sh"
--'  12  45  ~/start.sh
-|4,39,12,45,1549775760,"~/start.sh"
--'  12  45  ~/start.sh
-|4,39,12,45,1549775760,"~/start.sh"
--'  12  45  ~/start.sh
-|4,39,12,45,1549775760,"~/start.sh"
--'  12  45  ~/start.sh
-|4,39,12,45,1549775760,"~/start.sh"
--'  12  45  ~/start.sh
-|4,39,12,45,1549775760,"~/start.sh"
--'  12  45  ~/start.sh
-|4,39,12,45,1549775760,"~/start.sh"
--'  12  45  ~/start.sh
-|4,39,12,45,1549775760,"~/start.sh"
--'  12  45  ~/start.sh
-|4,39,12,45,1549775760,"~/start.sh"
--'  12  45  ~/start.sh
-|4,39,12,45,1549775760,"~/start.sh"
--'  12  45  ~/start.sh
-|4,39,12,45,1549775760,"~/start.sh"
--'  12  45  ~/start.sh
-|4,39,12,45,1549775760,"~/start.sh"
--'  12  45  ~/start.sh
-|4,39,12,45,1549775760,"~/start.sh"
--'  12  45  ~/start.sh
-|4,39,12,45,1549775760,"~/start.sh"
--'  12  45  ~/start.sh
-|4,39,12,45,1549775760,"~/start.sh"
--'  12  45  ~/start.sh
-|4,39,12,45,1549775760,"~/start.sh"
--'  12  45  ~/start.sh
-|4,39,12,45,1549775760,"~/start.sh"
--'  12  45  ~/start.sh
-|4,39,12,45,1549775760,"~/start.sh"
--'  12  45  ~/start.sh
-|4,39,12,45,1549775760,"~/start.sh"
--'  12  45  ~/start.sh
-|4,39,12,45,1549775760,"~/start.sh"
--'  12  45  ~/start.sh
-|4,39,12,45,1549775760,"~/start.sh"
--'  12  45  ~/start.sh
-|4,39,12,45,1549775760,"~/start.sh"
--'  12  45  ~/start.sh
-|4,39,12,45,1549775760,"~/start.sh"
--'  12  45  ~/start.sh
-|4,39,12,45,1549775760,"~/start.sh"
--'  12  45  ~/start.sh
-|4,39,12,45,1549775760,"~/start.sh"
--'  12  45  ~/start.sh
-|4,39,12,45,1549775760,"~/start.sh"
--'  12  45  ~/start.sh
-|4,39,12,45,1549775760,"~/start.sh"
--'  12  45  ~/start.sh
-|4,39,12,45,1549775760,"~/start.sh"
--'  12  45  ~/start.sh
-|4,39,12,45,1549775760,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  1  0  ~/start.sh
-|4,39,1,0,1549775676,"~/start.sh"
--'  17  0  ~/memory2.nginx
-|4,39,17,0,1549775614,"~/memory2.nginx"
--'  17  0  ~/memory2.nginx
-|4,39,17,0,1549775614,"~/memory2.nginx"
--'  17  0  ~/memory2.nginx
-|4,39,17,0,1549775614,"~/memory2.nginx"
--'  17  0  ~/memory2.nginx
-|4,39,17,0,1549775614,"~/memory2.nginx"
--'  17  0  ~/memory2.nginx
-|4,39,17,0,1549775614,"~/memory2.nginx"
--'  17  0  ~/memory2.nginx
-|4,39,17,0,1549775614,"~/memory2.nginx"
--'  17  0  ~/memory2.nginx
-|4,39,17,0,1549775614,"~/memory2.nginx"
+|4,39,6,27,1549776514,"~/deploy.sh"
+-'  6  27  ~/deploy.sh
+|4,39,6,27,1549776514,"~/deploy.sh"
+-'  6  27  ~/deploy.sh
+|4,39,6,27,1549776514,"~/deploy.sh"
+-'  6  27  ~/deploy.sh
+|4,39,6,27,1549776514,"~/deploy.sh"
+-'  6  27  ~/deploy.sh
+|4,39,6,27,1549776514,"~/deploy.sh"
+-'  6  27  ~/deploy.sh
+|4,39,6,27,1549776514,"~/deploy.sh"
+-'  6  27  ~/deploy.sh
+|4,39,6,27,1549776514,"~/deploy.sh"
+-'  6  27  ~/deploy.sh
+|4,39,6,27,1549776514,"~/deploy.sh"
+-'  6  27  ~/deploy.sh
+|4,39,6,27,1549776514,"~/deploy.sh"
+-'  6  27  ~/deploy.sh
+|4,39,6,27,1549776514,"~/deploy.sh"
+-'  6  27  ~/deploy.sh
+|4,39,6,27,1549776514,"~/deploy.sh"
+-'  6  27  ~/deploy.sh
+|4,39,6,27,1549776514,"~/deploy.sh"
+-'  6  27  ~/deploy.sh
+|4,39,6,27,1549776514,"~/deploy.sh"
+-'  6  27  ~/deploy.sh
+|4,39,6,27,1549776514,"~/deploy.sh"
+-'  6  27  ~/deploy.sh
+|4,39,6,27,1549776514,"~/deploy.sh"
+-'  6  27  ~/deploy.sh
+|4,39,6,27,1549776514,"~/deploy.sh"
+-'  6  27  ~/deploy.sh
+|4,39,6,27,1549776514,"~/deploy.sh"
+-'  6  27  ~/deploy.sh
+|4,39,6,27,1549776514,"~/deploy.sh"
+-'  6  27  ~/deploy.sh
+|4,39,6,27,1549776514,"~/deploy.sh"
 
 # History of marks within files (newest to oldest):
 
+> /etc/nginx/sites-available/memory2.nginx
+	*	1550023092	0
+	"	12	33
+	^	12	34
+	.	12	33
+	+	8	33
+	+	12	33
+
+> ~/deploy.sh
+	*	1550023064	0
+	"	4	15
+	^	4	16
+	.	4	15
+	+	27	43
+	+	6	22
+	+	15	8
+	+	5	20
+	+	6	27
+	+	27	22
+	+	4	15
+
 > ~/start.sh
-	*	1549777122	0
+	*	1550023045	0
 	"	17	0
 	^	17	0
 	.	16	34
@@ -261,18 +282,6 @@
 	+	12	45
 	+	8	22
 	+	16	34
-
-> ~/deploy.sh
-	*	1549777013	0
-	"	26	0
-	^	19	23
-	.	27	22
-	+	27	43
-	+	6	22
-	+	15	8
-	+	5	20
-	+	6	27
-	+	27	22
 
 > ~/memory2.nginx
 	*	1549775614	0
